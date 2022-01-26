@@ -1,0 +1,33 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Log in</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css'%}">
+        <body>
+            {%include 'booking/nav.html'%}
+            <div class="loginbox">
+            <img src="{% static 'images/b.png'%}" class="avatar">
+            <h1>Login</h1>
+            <form action="#" method="post">
+                {% csrf_token %}
+                <p>Username</p>
+                <input type="email" name="email" placeholder="Enter Email" id="email" required>
+                <p>Password</p>
+                <input type="password" name="password" placeholder="Enter password" id="password" required>
+                <input type="submit" name="" value="Login">
+                <!--a href="#"><br>Forgot password?</a-->
+                <a href="signup"><br>New User</a>
+            </form>
+
+            </div>
+            </div>
+        </body>
+
+
+    </head>
+</html>

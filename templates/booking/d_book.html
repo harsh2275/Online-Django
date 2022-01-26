@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dynamically Add/Remove Table Rows using jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+      #tbl{
+        width:50%;
+        margin:50px auto;
+        border-collapse:collapse;
+      }
+      #tbl td,#tbl th{
+        border:1px solid #ccc;
+        padding:15px;
+      }
+     body{
+       background-color: black;
+     }
+     /* button{
+       text-align: center;
+     } */
+     .center {
+  margin: 0;
+  position: absolute;
+  /* top: 50%; */
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+   
+  </head>
+  <body>
+    <!-- <h1>Hello, world!</h1> -->
+    <h3 style="text-align: center ; ">Ticket booking page</h3>
+    <div class="container">
+        <div class="card mt-5">
+            <div class="cardheader">
+                <h5 style="text-align: center;">Choose the date and time of travel</h5>
+            </div>
+            <div class="card-body">
+                <form  id="product_form">
+                <div class="row" id="row1">
+                    <div class="col-8">
+                        <label >Date</label>
+                        <input type="Date" name="product1" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="col-4">
+                        <label for="">Time</label>
+                        <input type="time" name="price1"class="form-control" placeholder="Enter your age" required>
+                    </div>
+
+                </div>
+            
+            </form>
+                <!-- <button class="btn btn-dark float-right mt-2" onclick="add_more_field()">Add more+</button> -->
+            </div>
+        </div>
+    </div>
+    <table id='tbl' >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type='text' name='uname[]' id="name1"></td>
+            <td><input type='text' name='age[]' id="age" ></td>
+            <td><input type='button' value='Remove' class='rmv' style="background-color: rgb(68, 63, 63); color: whitesmoke; border-radius: 5px;"></td>
+            <!-- <td><input type='button' class="btn btn-secondary" value='Remove' class='rmv'></td> -->
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan='3'><input type='button' value='+Add Row' id='add_row'></td>
+          </tr>
+        </tfoot>
+      </table>
+      <!-- <input class="btn btn-primary" type="submit" value="Submit" > -->
+      <div class="center">
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+          $("#add_row").click(function(){
+            var row="<tr> <td><input type='text' name='uname[]'></td> <td><input type='text' name='age[]'></td> <td><input type='button' value='Remove' class='rmv'></td> </tr>";
+            $("#tbl tbody").append(row);
+          });
+          
+          $("body").on("click",".rmv",function(){
+            $(this).closest("tr").remove();
+          });
+        });
+      </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
